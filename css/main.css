@@ -1,3 +1,67 @@
 @import "./reset.css";
 @import "./common.css";
 @import "./wiki-layout.css";
+
+.social-icons {
+    display: flex;
+    gap: 10px; /* 아이콘 사이 간격 */
+    margin-top: 10px; /* 위 텍스트와 간격 */
+}
+
+.social-icons img {
+    width: 27px;
+}
+
+/* 추가 구현: 스무스 스크롤, 갤러리 호버, 다크모드 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--body-bg-color, #fff);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="dark"] {
+  --primary-color: #6fb085;
+  --nav-bg-color: #1a1a1a;
+  --hero-bg-color: #121212;
+  --card-bg-color: #242424;
+  --divider-color: #333;
+  --font-default-color: #ffffff;
+  --body-bg-color: #121212;
+}
+
+[data-theme="dark"] .profile-info .tagline,
+[data-theme="dark"] .content-section > p,
+[data-theme="dark"] .section-desc,
+[data-theme="dark"] .work-info p,
+[data-theme="dark"] .til-item time,
+[data-theme="dark"] .til-item p,
+[data-theme="dark"] .info-table th,
+[data-theme="dark"] .info-table td,
+[data-theme="dark"] .til-form label,
+[data-theme="dark"] figcaption {
+  color: #e0e0e0;
+}
+
+.gallery-grid figure {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gallery-grid img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
