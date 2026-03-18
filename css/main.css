@@ -4,12 +4,60 @@
 
 .social-icons {
     display: flex;
-    gap: 10px; /* 아이콘 사이 간격 */
-    margin-top: 10px; /* 위 텍스트와 간격 */
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.social-icons img {
-    width: 27px;
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f4f4f4;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #555;
+}
+
+.social-icons .icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a[aria-label="GitHub"]:hover {
+    background-color: #24292e;
+    color: #fff;
+}
+
+.social-icons a[aria-label="Tistory"]:hover {
+    background-color: #eb7e5d;
+    color: #fff;
+}
+
+[data-theme="dark"] .social-icons a {
+    background-color: #2c2c2c;
+    color: #bbb;
+}
+
+[data-theme="dark"] .social-icons a:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .social-icons a[aria-label="GitHub"]:hover {
+    background-color: #fff;
+    color: #24292e;
+}
+
+[data-theme="dark"] .social-icons a[aria-label="Tistory"]:hover {
+    background-color: #ff8c6b;
+    color: #fff;
 }
 
 /* 추가 구현: 스무스 스크롤, 갤러리 호버, 다크모드 */
