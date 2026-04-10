@@ -176,3 +176,48 @@ WHERE a.attendance_date = '2025-03-05'
     WHERE attendance_date = '2025-03-05'
   );
 ```
+## 집계 함수 실습
+
+### 문제 13: 크루별 기록된 날짜 수
+```sql
+SELECT
+  c.nickname,
+  COUNT(a.attendance_date) AS recorded_days
+FROM attendance a
+JOIN crew c ON a.crew_id = c.crew_id
+GROUP BY c.crew_id, c.nickname;
+```
+
+### 문제 14: 크루별 등교 기록이 있는 날짜 수
+```sql
+SELECT
+  c.nickname,
+  COUNT(a.start_time) AS attended_days
+FROM attendance a
+JOIN crew c ON a.crew_id = c.crew_id
+WHERE a.start_time IS NOT NULL
+GROUP BY c.crew_id, c.nickname;
+```
+
+### 문제 15: 날짜별 등교한 크루 수
+```sql
+SELECT
+  attendance_date,
+  COUNT(crew_id) AS crew_count
+FROM attendance
+WHERE start_time IS NOT NULL
+GROUP BY attendance_date
+ORDER BY attendance_date;
+```
+
+### 문제 16: 크루별 가장 빠른/늦은 등교 시각
+```sql
+SELECT
+  c.nickname,
+  MIN(a.start_time) AS earliest_start,
+  MAX(a.start_time) AS latest_start
+FROM attendance a
+JOIN crew c ON a.crew_id = c.crew_id
+GROUP BY c.crew_id, c.nickname
+ORDER BY c.crew_id;
+```
